@@ -6,6 +6,8 @@ using Microsoft.EntityFrameworkCore;
 var builder = WebApplication.CreateBuilder(args);
 //var connectionString = builder.Configuration.GetConnectionString("EventDbContextConnection"); builder.Services.AddDbContext<EventDbContext>(options =>
 //    options.UseSqlServer(connectionString));
+
+// Add services to the container.
 builder.Services.AddControllersWithViews();
 builder.Services.AddRazorPages();
 
@@ -20,7 +22,6 @@ builder.Services.AddDefaultIdentity<IdentityUser>
     options.Password.RequireLowercase = false;
 }).AddEntityFrameworkStores<ApplicationDbContext>();
 
-// Add services to the container.
 //var connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
 var connectionString = "server=localhost;user=cityfoods;password=cityfoods;database=cityfoods";
 var serverVersion = new MySqlServerVersion(new Version(8, 0, 32));
@@ -29,10 +30,10 @@ builder.Services.AddDbContext<ApplicationDbContext>(dbContextOptions => dbContex
 
 
 //this does not match coding events:
-builder.Services.AddDatabaseDeveloperPageExceptionFilter();
+//builder.Services.AddDatabaseDeveloperPageExceptionFilter();
 //ths does not match coding events:
-builder.Services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
-    .AddEntityFrameworkStores<ApplicationDbContext>();
+//builder.Services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
+//    .AddEntityFrameworkStores<ApplicationDbContext>();
 
 
 
@@ -54,7 +55,6 @@ app.UseHttpsRedirection();
 app.UseStaticFiles();
 
 app.UseRouting();
-
 app.UseAuthentication();
 app.UseAuthorization();
 app.MapRazorPages();
