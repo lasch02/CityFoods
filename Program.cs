@@ -14,6 +14,10 @@ builder.Services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.Requ
     .AddEntityFrameworkStores<ApplicationDbContext>();
 builder.Services.AddControllersWithViews();
 
+
+//var connectionString = "server=localhost;user=cityfoods;password=cityfoods;database=cityfoods";
+//var serverVersion = new MySqlServerVersion(new Version(8, 0, 32));
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
