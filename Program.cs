@@ -8,6 +8,19 @@ var builder = WebApplication.CreateBuilder(args);
 //    options.UseSqlServer(connectionString));
 
 // Add services to the container.
+
+//var connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
+
+var connectionString = "server=localhost;user=cityfoods;password=cityfoods;database=cityfoods";
+var serverVersion = new MySqlServerVersion(new Version(8, 0, 32));
+
+builder.Services.AddDbContext<ApplicationDbContext>(options =>
+    options.UseSqlServer(connectionString));
+builder.Services.AddDatabaseDeveloperPageExceptionFilter();
+
+builder.Services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
+    .AddEntityFrameworkStores<ApplicationDbContext>();
+
 builder.Services.AddControllersWithViews();
 builder.Services.AddRazorPages();
 
