@@ -1,0 +1,35 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+@using CityFoods.ViewModels;
+@model AddCityFoodSuggestionViewModel;
+
+<h1>Add Food Suggestion!</h1>
+
+<form method="post">
+
+    <div asp-controller="FoodSuggestion" asp-action="AddFoodSuggestion" class="form-group">
+        <label asp-for="City"><strong>What city is this food available in?</strong></label>
+        <input asp-for="City" type="text" class="form-control" />
+    </div>
+
+    <div asp-controller="FoodSuggestion" asp-action="AddFoodSuggestion" class="form-group">
+        <label asp-for="NameOfUniqueFood"><strong>Unique Food Name</strong></label>
+        <input asp-for="NameOfUniqueFood" type="text" class="form-control" />
+    </div>
+
+    <div asp-controller="FoodSuggestion" asp-action="AddFoodSuggestion" class="form-group">
+        <label asp-for="RestaurantName"><strong>Restaurant that serves this food?</strong></label>
+        <input asp-for="RestaurantName" type="text" class="form-control" />
+    </div>
+
+    <div asp-controller="FoodSuggestion" asp-action="AddFoodSuggestion" class="form-group">
+        <label asp-for="ImgUrl"><strong>Optional Image Input</strong></label>
+        <input asp-for="ImgUrl" type="text" class="form-control" />
+    </div>
+
+
+    <input type="submit" value="Add Your Unique Food Suggestion" class="btn btn-primary" />
+</form>
