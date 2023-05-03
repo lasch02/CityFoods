@@ -36,6 +36,8 @@ builder.Services.AddDbContext<ApplicationDbContext>(dbContextOptions => dbContex
 //builder.Services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
 //    .AddEntityFrameworkStores<ApplicationDbContext>();
 
+builder.Services.AddDbContext<CityFoodSuggestionDbContext>(dbContextOptions => dbContextOptions.UseMySql(connectionString, serverVersion));
+
 
 
 var app = builder.Build();
