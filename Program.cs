@@ -1,28 +1,44 @@
 using CityFoods.Data;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
+//using CityFoods.Areas.Identity.Data;
 
 var builder = WebApplication.CreateBuilder(args);
+//var connectionString = builder.Configuration.GetConnectionString("EventDbContextConnection"); builder.Services.AddDbContext<EventDbContext>(options =>
+//    options.UseSqlServer(connectionString));
 
 // Add services to the container.
-//var connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
 
+builder.Services.AddControllersWithViews();
+builder.Services.AddRazorPages();
+
+builder.Services.AddDefaultIdentity<IdentityUser>
+(options =>
+{
+    options.SignIn.RequireConfirmedAccount = true;
+    options.Password.RequireDigit = false;
+    options.Password.RequiredLength = 10;
+    options.Password.RequireNonAlphanumeric = false;
+    options.Password.RequireUppercase = true;
+    options.Password.RequireLowercase = false;
+}).AddEntityFrameworkStores<ApplicationDbContext>();
+
+//var connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
 var connectionString = "server=localhost;user=cityfoods;password=cityfoods;database=cityfoods";
 var serverVersion = new MySqlServerVersion(new Version(8, 0, 32));
 
-builder.Services.AddDbContext<ApplicationDbContext>(options =>
-    options.UseSqlServer(connectionString));
-builder.Services.AddDatabaseDeveloperPageExceptionFilter();
+builder.Services.AddDbContext<ApplicationDbContext>(dbContextOptions => dbContextOptions.UseMySql(connectionString, serverVersion));
 
-builder.Services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
-    .AddEntityFrameworkStores<ApplicationDbContext>();
-builder.Services.AddControllersWithViews();
+
+//this does not match coding events:
+//builder.Services.AddDatabaseDeveloperPageExceptionFilter();
+//ths does not match coding events:
+//builder.Services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
+//    .AddEntityFrameworkStores<ApplicationDbContext>();
 
 builder.Services.AddDbContext<CityFoodSuggestionDbContext>(dbContextOptions => dbContextOptions.UseMySql(connectionString, serverVersion));
 
 
-//var connectionString = "server=localhost;user=cityfoods;password=cityfoods;database=cityfoods";
-//var serverVersion = new MySqlServerVersion(new Version(8, 0, 32));
 
 var app = builder.Build();
 
@@ -42,9 +58,10 @@ app.UseHttpsRedirection();
 app.UseStaticFiles();
 
 app.UseRouting();
-
 app.UseAuthentication();
 app.UseAuthorization();
+app.MapRazorPages();
+app.MapControllers();
 
 app.MapControllerRoute(
     name: "default",
