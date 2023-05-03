@@ -4,21 +4,28 @@
 @{
 }
 
+@model List<CityFoods.Models.CityFoodSuggestion>
+
+
 <table class="table">
     <tr>
-        <th>City</th>
-        <th>State</th>
         <th>Unique Food Name</th>
+        <th>City</th>
         <th>Restaurant Name</th>
         <th>Image Url</th>
-       
+
     </tr>
-    @*@foreach (CityFoodSuggestion cityFood in Model)
+    @foreach (var cityFood in Model)
     {
         <tr>
-            <td><a asp-controller="Skill" asp-action="Detail" asp-route-id="@skill.Id">@skill.SkillName</a></td>
-        </tr>*@
+            <td><a asp-controller="FoodSuggestion" asp-action="About" asp-route-id="@cityFood.Id">@cityFood.NameOfUniqueFood</a></td>
+            <td>@cityFood.City</td>
+            <td>@cityFood.RestaurantName</td>
+            <td><img src=@cityFood.ImgUrl width="30%" /></td>
+        </tr>
     }
 </table>
-}
-<p><a asp-controller="FoodSuggestion" asp-action="AddFoodSuggestion">Add more unique food suggestions</a></p>
+
+<a asp-controller="FoodSuggestion" asp-action="AddFoodSuggestion">
+    <input type="button" class="btn btn-primary" value="Add More Unique Food Suggestions" />
+</a>

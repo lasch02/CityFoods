@@ -3,10 +3,10 @@ namespace CityFoods.Models
 {
 	public class CityFoodSuggestion
 	{
-		public string City { get; set; }
-		public string NameOfUniqueFood { get; set; }
-		public string RestaurantName { get; set; }
-		public string ImgUrl { get; set; }
+		public string? City { get; set; }
+		public string? NameOfUniqueFood { get; set; }
+		public string? RestaurantName { get; set; }
+		public string? ImgUrl { get; set; }
 
 		public int Id { get; set; }
 

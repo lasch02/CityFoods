@@ -10,7 +10,9 @@
 
 <form method="post">
 
-    <div asp-controller="FoodSuggestion" asp-action="AddFoodSuggestion" class="form-group">
+    <div style="margin-left:auto;margin-right:auto;"
+
+        asp-controller="FoodSuggestion" asp-action="AddFoodSuggestion" class="form-group">
         <label asp-for="City"><strong>What city is this food available in?</strong></label>
         <input asp-for="City" type="text" class="form-control" />
     </div>
@@ -26,7 +28,7 @@
     </div>
 
     <div asp-controller="FoodSuggestion" asp-action="AddFoodSuggestion" class="form-group">
-        <label asp-for="ImgUrl"><strong>Optional Image Input</strong></label>
+        <label asp-for="ImgUrl"><strong>Image URL</strong></label>
         <input asp-for="ImgUrl" type="text" class="form-control" />
     </div>
 

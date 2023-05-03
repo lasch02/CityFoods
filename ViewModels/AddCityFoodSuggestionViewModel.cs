@@ -13,7 +13,8 @@ namespace CityFoods.ViewModels
 
 		public string? RestaurantName { get; set; }
 
-		public string ImgUrl { get; set; }
+		[Url]
+		public string? ImgUrl { get; set; }
 
 		public AddCityFoodSuggestionViewModel()
 		{
