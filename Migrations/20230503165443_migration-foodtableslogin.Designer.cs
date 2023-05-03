@@ -11,8 +11,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace CityFoods.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20230501212428_InitialMigration")]
-    partial class InitialMigration
+    [Migration("20230503165443_migration-foodtableslogin")]
+    partial class migrationfoodtableslogin
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -20,6 +20,29 @@ namespace CityFoods.Migrations
             modelBuilder
                 .HasAnnotation("ProductVersion", "6.0.13")
                 .HasAnnotation("Relational:MaxIdentifierLength", 64);
+
+            modelBuilder.Entity("CityFoods.Models.CityFoodSuggestion", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    b.Property<string>("City")
+                        .HasColumnType("longtext");
+
+                    b.Property<string>("ImgUrl")
+                        .HasColumnType("longtext");
+
+                    b.Property<string>("NameOfUniqueFood")
+                        .HasColumnType("longtext");
+
+                    b.Property<string>("RestaurantName")
+                        .HasColumnType("longtext");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("CityFoodSuggestions");
+                });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole", b =>
                 {
