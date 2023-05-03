@@ -1,0 +1,18 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+
+@using CityFoods.Models
+@model CityFoods.Models.CityFoodSuggestion
+
+
+<h1>City Food Suggestion: @Model.NameOfUniqueFood</h1>
+
+<div>
+    <p>Name of food: @Model.NameOfUniqueFood</p>
+    <p>Location/City: @Model.City</p>
+    <p>Restaurant Name: @Model.RestaurantName</p>
+    <p><img src=@Model.ImgUrl width="30%" /></p>
+</div>
