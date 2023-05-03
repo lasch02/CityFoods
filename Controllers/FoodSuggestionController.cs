@@ -14,9 +14,9 @@ namespace CityFoods.Controllers
 {
     public class FoodSuggestionController : Controller
     {
-        private CityFoodSuggestionDbContext context;
+        private ApplicationDbContext context;
 
-        public FoodSuggestionController(CityFoodSuggestionDbContext dbContext)
+        public FoodSuggestionController(ApplicationDbContext dbContext)
         {
             context = dbContext;
         }
