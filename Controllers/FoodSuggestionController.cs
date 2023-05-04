@@ -21,10 +21,21 @@ namespace CityFoods.Controllers
             context = dbContext;
         }
         // GET: /<controller>/
-        public IActionResult Index()
+        public IActionResult Index(string searchString)
         {
-            List<CityFoodSuggestion> cityFoodSuggestions = context.CityFoodSuggestions.ToList();
-            return View(cityFoodSuggestions);
+
+            //List<CityFoodSuggestion> cityFoodSuggestions = context.CityFoodSuggestions.ToList();
+            //return View(cityFoodSuggestions);
+            //var stlOnly = context.CityFoodSuggestions.Where(s => s.City.Equals("stl"));
+            //return View(stlOnly.ToList());
+            ViewBag.CurrentFilter = searchString;
+            var city = from c in context.CityFoodSuggestions
+                       select c;
+            if (!String.IsNullOrEmpty(searchString))
+            {
+                city = city.Where(c => c.City.Contains(searchString));
+            }
+            return View(city.ToList());
         }
 
         [HttpGet]
@@ -44,6 +55,7 @@ namespace CityFoods.Controllers
                 CityFoodSuggestion newcityFoodSuggestion = new CityFoodSuggestion
                 {
                     City = addCityFoodSuggestionViewModel.City,
+                    State = addCityFoodSuggestionViewModel.State,
                     NameOfUniqueFood = addCityFoodSuggestionViewModel.NameOfUniqueFood,
                     RestaurantName = addCityFoodSuggestionViewModel.RestaurantName,
                     ImgUrl = addCityFoodSuggestionViewModel.ImgUrl,
@@ -62,5 +74,12 @@ namespace CityFoods.Controllers
 
             return View(cityFoodSuggestion);
         }
+
+        //public IActionResult Search()
+        //{
+        //    var stlOnly = context.CityFoodSuggestions.Where(s => s.City.Equals("stl"));
+        //    return View(stlOnly.ToList());
+        //}
+
     }
 }
