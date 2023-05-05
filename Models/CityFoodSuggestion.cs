@@ -1,4 +1,6 @@
 ﻿using System;
+using System.ComponentModel.DataAnnotations;
+
 namespace CityFoods.Models
 {
 	public class CityFoodSuggestion
@@ -9,6 +11,7 @@ namespace CityFoods.Models
 		public string? RestaurantName { get; set; }
 		public string? ImgUrl { get; set; }
 
+        [Key]
 		public int Id { get; set; }
 
 

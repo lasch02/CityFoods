@@ -23,7 +23,7 @@ namespace CityFoods.Controllers
         // GET: /<controller>/
         public IActionResult Index(string searchString)
         {
-
+            
             //List<CityFoodSuggestion> cityFoodSuggestions = context.CityFoodSuggestions.ToList();
             //return View(cityFoodSuggestions);
             //var stlOnly = context.CityFoodSuggestions.Where(s => s.City.Equals("stl"));
