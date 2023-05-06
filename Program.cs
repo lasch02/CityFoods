@@ -1,3 +1,4 @@
+using CityFoods.Areas.Identity;
 using CityFoods.Data;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
@@ -22,6 +23,7 @@ builder.Services.AddDefaultIdentity<IdentityUser>
     options.Password.RequireUppercase = true;
     options.Password.RequireLowercase = false;
 }).AddEntityFrameworkStores<ApplicationDbContext>();
+
 
 //var connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
 var connectionString = "server=localhost;user=cityfoods;password=cityfoods;database=cityfoods";

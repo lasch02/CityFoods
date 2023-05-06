@@ -1,9 +1,10 @@
 ﻿using System;
 using System.ComponentModel.DataAnnotations;
+using CityFoods.Areas.Identity;
 
 namespace CityFoods.Models
 {
-	public class CityFoodSuggestion
+	public class CityFoodSuggestion 
 	{
 		public string? City { get; set; }
         public State State { get; set; }
