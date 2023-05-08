@@ -11,8 +11,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace CityFoods.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20230504065207_Formwithstatesmigration")]
-    partial class Formwithstatesmigration
+    [Migration("20230508154422_InitialMigration2")]
+    partial class InitialMigration2
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
