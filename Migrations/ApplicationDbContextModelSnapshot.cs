@@ -37,6 +37,9 @@ namespace CityFoods.Migrations
                     b.Property<string>("RestaurantName")
                         .HasColumnType("longtext");
 
+                    b.Property<int>("State")
+                        .HasColumnType("int");
+
                     b.HasKey("Id");
 
                     b.ToTable("CityFoodSuggestions");
