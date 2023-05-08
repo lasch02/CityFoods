@@ -11,8 +11,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace CityFoods.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20230503165443_migration-foodtableslogin")]
-    partial class migrationfoodtableslogin
+    [Migration("20230504065207_Formwithstatesmigration")]
+    partial class Formwithstatesmigration
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -38,6 +38,9 @@ namespace CityFoods.Migrations
 
                     b.Property<string>("RestaurantName")
                         .HasColumnType("longtext");
+
+                    b.Property<int>("State")
+                        .HasColumnType("int");
 
                     b.HasKey("Id");
 
