@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace CityFoods.Migrations
 {
-    public partial class migrationfoodtableslogin : Migration
+    public partial class FormMigration : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
