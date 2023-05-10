@@ -2,21 +2,45 @@
     ViewData["Title"] = "Home Page";
 }
 
-<!--<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>What's Your City's Unique Food? Enter below!</p>
-</div>-->
-@*Adds Button that links to form*@
-<!--<a asp-controller="FoodSuggestion" asp-action="AddFoodSuggestion">
-    <input type="button" class="btn btn-primary" value="Add Food Suggestion" />
-</a>-->
+<header>
+    <h1 class="site-heading text-center text-faded d-none d-lg-block">
+        <span class="site-heading-upper text-primary mb-3">Nom Nom For Us, David!</span>
+        <span class="site-heading-lower">CityFoods</span>
+    </h1>
+</header>
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>What's Your City's Unique Food? Enter below!</p>
-</div>
+<section class="page-section clearfix">
+    <div class="container">
+        <div class="intro">
+            <img class="intro-img img-fluid mb-3 mb-lg-0 rounded" src="~/assets/img/CityFoodsLogo.png" alt="..." />
+            <div class="intro-text left-0 text-center bg-faded p-5 rounded">
+                <h2 class="section-heading mb-4">
+                    <span class="section-heading-upper">LOCAL FOOD SPOTS</span>
+                    <span class="section-heading-lower">WORTH EXPLORING</span>
+                </h2>
+                <p class="mb-3">Nom nom nom nom nom nom nom nom nom nom nom nom nom nom nom nom nom nom nom nom nom nom nom nom nom nom nom nom nom nom nom nom nom nom nom nom nom nom nom nom nom nom nom nom nom nom nom nom nom nom nom nom!</p>
+                <div class="intro-button mx-auto">
+                    <a asp-controller="FoodSuggestion" asp-action="AddFoodSuggestion">
+                        <input type="button" class="btn btn-primary" value="Add Food Suggestion" />
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<section class="page-section cta">
+    <div class="container">
+        <div class="row">
+            <div class="col-xl-9 mx-auto">
+                <div class="cta-inner bg-faded text-center rounded">
+                    <h2 class="section-heading mb-4">
+                        <span class="section-heading-upper">About CityFoods</span>
+                        <span class="section-heading-lower">Favorite Foods At Your Finger Tips</span>
+                    </h2>
+                    <p class="mb-0">Peanut butter jelly time! Peanut butter jelly time! Peanut butter jelly time! Peanut butter jelly time! </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
 
-@*Adds Button that links to form*@
-<a asp-controller="FoodSuggestion" asp-action="AddFoodSuggestion">
-    <input type="button" class="btn btn-primary" value="Add Food Suggestion" />
-</a>

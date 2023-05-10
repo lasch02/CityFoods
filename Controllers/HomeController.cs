@@ -13,11 +13,13 @@ namespace CityFoods.Controllers
             _logger = logger;
         }
 
+        //GET: Home
         public IActionResult Index()
         {
             return View();
         }
 
+      
         public IActionResult Privacy()
         {
             return View();
