@@ -8,10 +8,39 @@
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/CityFoods.styles.css" asp-append-version="true" />
 
+   @* <link rel="stylesheet" href="c:\users\launchcode\desktop\liftoff\cityfoods\style\stylesheet.css" />*@
+
+    <!-- Google fonts-->
+    <link href="https://fonts.googleapis.com/css?family=Raleway:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css?family=Lora:400,400i,700,700i" rel="stylesheet" />
+    <!-- Core theme CSS (includes Bootstrap)-->
+    <link href="~/css/styles.css" rel="stylesheet" />
+
 </head>
+@*/head>*@
 <body>
     <header>
-        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
+  </header>
+        <nav class="navbar navbar-expand-lg navbar-dark py-lg-4" id="mainNav">
+            <div class="container">
+                <a class="navbar-brand text-uppercase fw-bold d-lg-none" href="index.html">Start Bootstrap</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav mx-auto">
+                        <li class="nav-item px-lg-4"><a class="nav-link text-uppercase" asp-controller="Home" asp-action="Index">Home</a></li>
+                        <li class="nav-item px-lg-4"><a class="nav-link text-uppercase" asp-controller="FoodSuggestion" asp-action="AddFoodSuggestion">Add Suggestions</a></li>
+                        <li class="nav-item px-lg-4"><a class="nav-link text-uppercase" asp-controller="FoodSuggestion" asp-action="Index">View All Added Suggestions</a></li>
+                        @if (User.Identity.IsAuthenticated)
+                            {
+                        <li class="nav-item px-lg-4"><a class="nav-link text-uppercase" asp-controller="CityFoodSuggestionEditDelete" asp-action="Index">Edit/Delete Suggestions</a></li>
+                            }
+@*                        <li class="nav-item px-lg-4"><a class="nav-link text-uppercase" asp-controller="Home" asp-action="Privacy">Privacy</a></li>*@
+                    </ul>
+                <partial name="_LoginPartial" />
+                </div>
+            </div>
+        </nav>
+        @*<nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
             <div class="container-fluid">
                 <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">CityFoods</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
@@ -30,11 +59,11 @@
                             <a class="nav-link text-dark" asp-area="" asp-controller="FoodSuggestion" asp-action="Index">View All Added Suggestions</a>
                         </li>
                         @if (User.Identity.IsAuthenticated)
-                            {
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="CityFoodSuggestionEditDelete" asp-action="Index">Edit/Delete Suggestions</a>
-                        </li>
-                            }
+                        {
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" asp-area="" asp-controller="CityFoodSuggestionEditDelete" asp-action="Index">Edit/Delete Suggestions</a>
+                            </li>
+                        }
                         <li class="nav-item">
                             <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
                         </li>
@@ -42,17 +71,17 @@
                     <partial name="_LoginPartial" />
                 </div>
             </div>
-        </nav>
-    </header>
+        </nav>*@
+  
     <div class="container">
-        <main role="main" class="pb-3">
+        @*<main role="main" class="pb-3">*@
             @RenderBody()
-        </main>
+        @*</main>*@
     </div>
 
     <footer class="border-top footer text-muted">
         <div class="container">
-            &copy; 2023 - CityFoods - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+            &copy; 2023 - CityFoods @*- <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>*@
         </div>
     </footer>
     <script src="~/lib/jquery/dist/jquery.min.js"></script>

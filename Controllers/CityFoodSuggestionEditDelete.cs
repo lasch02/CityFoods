@@ -21,6 +21,7 @@ namespace CityFoods.Controllers
         }
 
         // GET: CityFoodSuggestionEditDelete
+        [Authorize]
         public async Task<IActionResult> Index()
         {
             return View(await _context.CityFoodSuggestions.ToListAsync());
@@ -67,6 +68,7 @@ namespace CityFoods.Controllers
         }
 
         // GET: CityFoodSuggestionEditDelete/Edit/5
+        [Authorize]
         public async Task<IActionResult> Edit(int? id)
         {
             if (id == null)
@@ -87,6 +89,7 @@ namespace CityFoods.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Authorize]
         public async Task<IActionResult> Edit(int id, [Bind("City,State,NameOfUniqueFood,RestaurantName,ImgUrl,Id")] CityFoodSuggestion cityFoodSuggestion)
         {
             if (id != cityFoodSuggestion.Id)
@@ -118,6 +121,7 @@ namespace CityFoods.Controllers
         }
 
         // GET: CityFoodSuggestionEditDelete/Delete/5
+        [Authorize]
         public async Task<IActionResult> Delete(int? id)
         {
             if (id == null)
@@ -138,6 +142,7 @@ namespace CityFoods.Controllers
         // POST: CityFoodSuggestionEditDelete/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
+        [Authorize]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
             var cityFoodSuggestion = await _context.CityFoodSuggestions.FindAsync(id);
